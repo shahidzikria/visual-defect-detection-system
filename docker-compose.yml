@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  defect-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: defect-detection-api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the models directory so the trained model is available
+      - ./models:/app/models:ro
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

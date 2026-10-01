@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+venv/
+.env/
+env/
+
+# Data
+data/raw/
+data/processed/
+
+# Model artifacts (large binary files)
+models/*.pth
+models/*.onnx
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Outputs (regenerable)
+outputs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
